@@ -1,1 +1,1 @@
-# click-game
+click-game.github.io
