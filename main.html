@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click Game</title>
+</head>
+<body>
+    <h1>Клікай на кнопку!</h1>
+    <button onclick="increment()">Клікни мене</button>
+    <p id="score">Очки: 0</p>
+
+    <script>
+        let score = 0;
+
+        function increment() {
+            score++;
+            document.getElementById('score').innerText = 'Очки: ' + score;
+        }
+    </script>
+</body>
+</html>
