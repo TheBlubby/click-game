@@ -8,22 +8,9 @@
 </head>
 <body>
     <div class="game-selector">
-        <button onclick="showGame('catchBall')">Лови М'яч</button>
-        <button onclick="showGame('spaceShip')">Космічний Корабель</button>
-        <button onclick="showGame('basketball')">Баскетбольний Кидок</button>
+        <a href="catch-ball/index.html">Лови М'яч</a>
+        <a href="space-ship/index.html">Космічний Корабель</a>
+        <a href="basketball/index.html">Баскетбольний Кидок</a>
     </div>
-    <div class="game-container" id="catchBall">
-        <div class="ball" id="ball"></div>
-        <div class="score-board">
-            <h2>Очки: <span id="score">0</span></h2>
-        </div>
-    </div>
-    <div class="game-container" id="spaceShip" style="display: none;">
-        <canvas id="spaceCanvas"></canvas>
-    </div>
-    <div class="game-container" id="basketball" style="display: none;">
-        <canvas id="basketballCanvas"></canvas>
-    </div>
-    <script src="script.js"></script>
 </body>
 </html>
