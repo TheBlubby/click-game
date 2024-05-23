@@ -3,15 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Лови М'яч</title>
+    <title>Мультигра</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="game-container">
-        <div class="ball" id="ball"></div>
+    <div class="game-selector">
+        <button onclick="showGame('catchBall')">Лови М'яч</button>
+        <button onclick="showGame('spaceShip')">Космічний Корабель</button>
+        <button onclick="showGame('basketball')">Баскетбольний Кидок</button>
     </div>
-    <div class="score-board">
-        <h2>Очки: <span id="score">0</span></h2>
+    <div class="game-container" id="catchBall">
+        <div class="ball" id="ball"></div>
+        <div class="score-board">
+            <h2>Очки: <span id="score">0</span></h2>
+        </div>
+    </div>
+    <div class="game-container" id="spaceShip" style="display: none;">
+        <canvas id="spaceCanvas"></canvas>
+    </div>
+    <div class="game-container" id="basketball" style="display: none;">
+        <canvas id="basketballCanvas"></canvas>
     </div>
     <script src="script.js"></script>
 </body>
