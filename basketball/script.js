@@ -155,8 +155,7 @@ function getMousePos(canvas, evt) {
     };
 }
 
-basketballCanvas.addEventListener("mousedown", (e) => {
-    const mousePos = getMousePos(basketballCanvas, e);
+function startDrag(mousePos) {
     ball.isDragging = true;
     ball.originX = mousePos.x;
     ball.originY = mousePos.y;
@@ -164,17 +163,16 @@ basketballCanvas.addEventListener("mousedown", (e) => {
     ball.startY = ball.y;
     ball.dragX = 0;
     ball.dragY = 0;
-});
+}
 
-document.addEventListener("mousemove", (e) => {
+function moveDrag(mousePos) {
     if (ball.isDragging) {
-        const mousePos = getMousePos(basketballCanvas, e);
         ball.dragX = ball.originX - mousePos.x;
         ball.dragY = ball.originY - mousePos.y;
     }
-});
+}
 
-document.addEventListener("mouseup", (e) => {
+function endDrag() {
     if (ball.isDragging) {
         const power = Math.sqrt(ball.dragX ** 2 + ball.dragY ** 2) / 10;
         ball.dx = ball.dragX / 10; // Adjusted value for more realistic trajectory
@@ -182,6 +180,38 @@ document.addEventListener("mouseup", (e) => {
         ball.isDragging = false;
         ball.isFlying = true;
     }
+}
+
+// Обробка подій миші
+basketballCanvas.addEventListener("mousedown", (e) => {
+    const mousePos = getMousePos(basketballCanvas, e);
+    startDrag(mousePos);
+});
+
+document.addEventListener("mousemove", (e) => {
+    const mousePos = getMousePos(basketballCanvas, e);
+    moveDrag(mousePos);
+});
+
+document.addEventListener("mouseup", (e) => {
+    endDrag();
+});
+
+// Обробка подій дотику
+basketballCanvas.addEventListener("touchstart", (e) => {
+    const touch = e.touches[0];
+    const touchPos = getMousePos(basketballCanvas, touch);
+    startDrag(touchPos);
+});
+
+document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    const touchPos = getMousePos(basketballCanvas, touch);
+    moveDrag(touchPos);
+});
+
+document.addEventListener("touchend", (e) => {
+    endDrag();
 });
 
 document.addEventListener("DOMContentLoaded", () => {
