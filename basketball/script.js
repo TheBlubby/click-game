@@ -199,12 +199,14 @@ document.addEventListener("mouseup", (e) => {
 
 // Обробка подій дотику
 basketballCanvas.addEventListener("touchstart", (e) => {
+    e.preventDefault(); // Зупиняємо поведінку прокручування
     const touch = e.touches[0];
     const touchPos = getMousePos(basketballCanvas, touch);
     startDrag(touchPos);
 });
 
 document.addEventListener("touchmove", (e) => {
+    e.preventDefault(); // Зупиняємо поведінку прокручування
     const touch = e.touches[0];
     const touchPos = getMousePos(basketballCanvas, touch);
     moveDrag(touchPos);
